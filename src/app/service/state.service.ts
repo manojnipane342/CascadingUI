@@ -13,10 +13,19 @@ export class StateService {
   APIurl = `${environment._apiUrl}State/`;
   constructor(private api: ApiProvider) { }
 
-    // add country
-    addState(State: StateModel):  Observable<any>  {
-      return this.api.post(this.APIurl + `AddState`, State);
-    }
-  
-    
+  // add State
+  addState(State: StateModel): Observable<any> {
+    return this.api.post(this.APIurl + `AddState`, State);
+  }
+
+  // get State
+  getState(): Observable<any> {
+    return this.api.get(this.APIurl + `GetState`);
+  }
+
+  // get state by country
+  getStatebycountryId(countryId: any): Observable<any> {
+    return this.api.get(this.APIurl + `GetStatebycountryId?CountryId=${countryId}`);
+  }
+
 }

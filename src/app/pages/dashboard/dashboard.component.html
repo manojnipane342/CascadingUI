@@ -1,0 +1,42 @@
+<div class="main main-height">
+    <div class="container-fluid">
+        <div class="teacher-section">
+            <div class="row">
+                <div class="col-md-4">
+                    <div>
+                        <select class="form-control form-control-lg form-control-solid" name="countryid" (change)="getCountryState($event)">
+                    <option>--- select ---</option>
+                    <option *ngFor="let item of countryList" [value]="item.id">
+                        {{item.name}}</option>
+                </select>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div>
+                        <select class="form-control form-control-lg form-control-solid" name="stateid" (change)="getStateCity($event)">
+                    <option>--- select ---</option>
+                    <option *ngFor="let item of stateList" [value]="item.id">
+                        {{item.name}}</option>
+                </select>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div>
+                        <select class="form-control form-control-lg form-control-solid" name="cityid">
+                    <option>--- select ---</option>
+                    <option *ngFor="let item of cityList" [value]="item.id">
+                        {{item.name}}</option>
+                </select>
+                    </div>
+                </div>
+            </div>
+            <div class="buttonDiv">
+                <button type="button" class="btn btn-secondary" routerLink="/country">Add Country</button>
+                <button type="button" class="btn btn-secondary" routerLink="/state">Add State</button>
+                <button type="button" class="btn btn-secondary" routerLink="/city">Add City</button>
+            </div>
+        </div>
+    </div>
+</div>

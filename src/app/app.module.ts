@@ -9,21 +9,21 @@ import { CityComponent } from './pages/city/city.component';
 import { CountryComponent } from './pages/country/country.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CountryComponent,
     StateComponent,
-    CityComponent
+    CityComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     CommonModule,
     AppRoutingModule,
-    NgxPaginationModule,
     FormsModule,
     ReactiveFormsModule,
   ],
