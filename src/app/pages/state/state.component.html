@@ -23,16 +23,21 @@
   <table class="table table-striped table-bordered">
     <thead>
       <tr>
-        <th>CountryName</th>
-        <th>State</th>
+
+        <th scope="col">
+          Country Name <i (click)="onSortClick($event,'name')" class="my-icon fa fa-chevron-up"></i>
+        </th>
+        <th scope="col">
+          State <i (click)="onSortClick($event,'code')" class="my-icon fa fa-chevron-up"></i>
+        </th>
         <!-- <th>Role</th>  -->
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of countryList">
+
         <td>{{item.name}} </td>
         <td>{{item.code}} </td>
-
       </tr>
     </tbody>
   </table>

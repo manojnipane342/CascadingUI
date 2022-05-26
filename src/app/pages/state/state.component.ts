@@ -13,6 +13,7 @@ import { StateService } from 'src/app/service/state.service';
 export class StateComponent implements OnInit {
   stateForm: FormGroup;
   countryList: CountryModel[] = [];
+  sortDir!: number;
   constructor(private apiCountry: CountryService,private apiState: StateService, private fb: FormBuilder) { 
 
     this.stateForm = this.fb.group({
@@ -21,6 +22,30 @@ export class StateComponent implements OnInit {
     });
   }
 
+  onSortClick(event: any,colName:string) {
+    let target = event.currentTarget,
+      classList = target.classList;
+
+    if (classList.contains('fa-chevron-up')) {
+      classList.remove('fa-chevron-up');
+      classList.add('fa-chevron-down');
+      this.sortDir = -1;
+    } else {
+      classList.add('fa-chevron-up');
+      classList.remove('fa-chevron-down');
+      this.sortDir = 1;
+    }
+    this.sortArr(colName);
+  }
+  
+
+  sortArr(colName: any) {
+    this.countryList.sort((a: any, b: any) => {
+      a = a[colName].toLowerCase();
+      b = b[colName].toLowerCase();
+      return a.localeCompare(b) * this.sortDir;
+    });
+  }
   ngOnInit(): void {
     this.getCountryList ();
   }
