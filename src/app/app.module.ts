@@ -9,6 +9,7 @@ import { CityComponent } from './pages/city/city.component';
 import { CountryComponent } from './pages/country/country.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     CommonModule,
     AppRoutingModule,
+    NgxPaginationModule,
     FormsModule,
     ReactiveFormsModule,
   ],

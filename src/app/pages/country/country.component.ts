@@ -11,6 +11,8 @@ import { CountryService } from 'src/app/service/country.service';
 export class CountryComponent implements OnInit {
   countryForm: FormGroup;
   countryList: CountryModel[] = [];
+  currentPages: number = 1;
+  pageSize = 5;
   sortDir = 1;//1= 'ASE' -1= DSC
   constructor(private apiCountry: CountryService, private fb: FormBuilder) {
 
@@ -28,6 +30,9 @@ export class CountryComponent implements OnInit {
 
   }
 
+  pageChange(event:any) {
+    this.currentPages = event;
+  }
   getCountryList() {
     this.apiCountry.getCountry().subscribe(res => {
       this.countryList = res;
